@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    
+    <style>
+      .card {
+        position: relative;
+        transform: rotateY(180deg);
+      }
+
+      .transform{
+        transform: rotateY(180deg);
+      }
+
+      .transform-rev{
+        transform: rotateY(-180deg);
+      }
+
+      .face {
+        border-radius: 10px;
+        /*box-shadow: 1px 1px 1px rgba(0,0,0,.3);*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        backface-visibility: hidden;
+        transition: all 2s;
+        transform-style: preserve-3d;
+        
+      }
+
+      .back-face {
+        transform: rotateY(180deg);
+      }
+
+      /*.card:active .back-face {*/
+    .card .back-face{
+        /*transform: rotateY(0deg);*/
+        transform: rotateY(180deg);
+      }
+
+      /*.card:active .front-face {*/
+    .card .front-face {
+        transform: rotateY(-180deg);
+      }
+      .display-none{
+        display: none;
+      }
+    </style>
+
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+<!--
+    <ul>
+        <li>
+            <div class="card">
+            <img src="img/front.png" class="front-face face">
+            </img>
+            <img src="./img/mem (1).gif" class="back-face face">
+            </img>
+            </div>
+        </li>
+    </ul>
+    -->    
+
+    <!--
+    <ul class="meuteste">
+        <li >
+            <div class="card" onclick="cliquei();">
+            <img src="img/front.png" class="primera face">
+            </img>
+            <img src="./img/mem (1).gif" class="segunda_img face display-none">
+            </img>
+            </div>
+        </li>
+    </ul>
+
+    <!--quando eu clicar quero colocar front-face no primeiro, back-face no segundo tirar display-none do-->
+    <script>
+        function cliquei(){
+            document.querySelector(".face").classList.add("transform");
+            let seletor_segunda_img = document.querySelector(".display-none");
+            seletor_segunda_img.classList.remove("display-none");
+            seletor_segunda_img.classList.add("transform-rev");
+
+        }
+    </script>
+
+  </body>
+</html>
