@@ -1,5 +1,4 @@
 let numero_cartas_viradas = 0;
-//let carta_anterior;
 let x_jogadas = 0;
 
 let cartas_abertas = 0;
@@ -60,11 +59,9 @@ function start(){
     for(let i = 0; i < numero_cards;i++){
         array_img_indices.push(i+1);
     }
-    //alert(array_img_indices);
 
     //embaralha
     array_img_indices.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
-    //alert(array_img_indices);
 
     let img_name = "";
     let card_id = 0;
@@ -122,22 +119,16 @@ async function turn(carta){
 
     if(card_antigo != null){
         id_primeira = card_antigo.id ;
-       // console.log("card_antigo existe com id: "+id_primeira);
 
         //front and back do card_antigo    
         card_antigo_front = card_antigo.children[0];
         card_antigo_back =  card_antigo.children[1];
 
-    }else{
-        //console.log("card_antigo não existe!");
     }
-    //console.log(card_antigo);
-
 
     //é a 1º carta?
     if(card_antigo == null){
         //carta_anterior = carta;
-        //console.log("É a primeira carta!");
          //coloca ativo
         carta.classList.add("ativo");
 
@@ -146,9 +137,7 @@ async function turn(carta){
         carta_back.classList.remove("escondido");
 
     }else{//2º carta
-        //console.log("É a segunda carta!");
         cartas_abertas = 2;//pra n dar bug com await
-
         let id_segunda = carta.id;
         //console.log("id_segunda: "+ id_segunda);
 
@@ -156,19 +145,9 @@ async function turn(carta){
         //mostra back da 2º carta = esconde front  -  (posso por fora do if-else)
         carta_front.classList.add("escondido");
         carta_back.classList.remove("escondido");
-        
-
-        console.log("Esse é o id da segunda "+id_segunda);
-        console.log("Esse é o id da primeira"+id_primeira);
-        console.log("___________________");
-
 
         //compara id da segunda carta com a primeira(ativo)
         let igual = is_equal_card(id_primeira, id_segunda);
-
-        
-        
-
 
         if(!igual){//cartas diferentes
             //wait 1s só se for diferente
@@ -193,13 +172,9 @@ async function turn(carta){
             carta.classList.add("acertada");
 
             cartas_abertas = 0;
-            
-            //numero_cartas_viradas += 2;
         }
         
         numero_cartas_viradas = document.querySelectorAll(".acertada").length;
-        console.log("numero cartas viradas: " + numero_cartas_viradas);
-        console.log("___________________");
 
         if(numero_cartas_viradas == numero_cards){
             alert(`parabéns,Você ganhou em ${x_jogadas} jogadas!\n Tempo: ${tempo_jogo}`);
@@ -236,26 +211,17 @@ async function turn(carta){
         }
         //remove ativo do card_antigo, aquele que eu virei primeiro
         card_antigo.classList.remove("ativo");
-
     }
-   
-    //posso por id na img front 
-    
-
 }
 
 /*********************************************/
 /* timer*/
 
 let h1 = document.querySelector('.timer h1');
-/*var start = document.getElementById('strt');
-var stop = document.getElementById('stp');
-var reset = document.getElementById('rst');*/
 let sec = 0;
 let min = 0;
 let hrs = 0;
 let t;
-
 
 function tick(){
     sec++;
@@ -286,12 +252,6 @@ function clear_time() {
 }
 
 
-//timer();
-/*
-start.onclick = timer;
-stop.onclick = function() {
-    clearTimeout(t);
-}*/
 function reset_timer() {
     //h1.textContent = "00:00";
     h1.innerHTML = "<time><h1>00:00</h1></time>";
