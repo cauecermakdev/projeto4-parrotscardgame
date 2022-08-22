@@ -26,7 +26,7 @@ function before_play(){
         
         if(resposta == "não"){ 
             //coloca um botao com opcao para começar
-            let botao = `<li><button onclick="start();">COMEÇAR</button></li>`;
+            let botao = `<li><button class="comecar" onclick="start();">COMEÇAR</button></li>`;
             document.querySelector("ul").innerHTML = botao;  
             jogo = 0;
             return 0;
@@ -302,7 +302,15 @@ function reset_timer() {
 
 /********************************************** */
 
-
-
+function darkMode(){
+    if(document.querySelector(".black") == null){
+        document.querySelector("body").classList.toggle("black");
+        document.querySelector(".interruptor").innerHTML = "Light";
+    }else{
+        document.querySelector("body").classList.toggle("black");
+        document.querySelector(".interruptor").innerHTML = "Dark";
+    }
+}   
 
 start();
+

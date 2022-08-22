@@ -3,6 +3,7 @@ body{
     width:100%;
     height:100%;
     background-color: #EEF9BF;
+    font-family: 'Roboto', sans-serif;
 }
 
 
@@ -70,7 +71,7 @@ div{
   color:white;
 }
 
-button{
+.comecar{
   margin-top:40px;
   background-color:#75B79E;
   font-size:20px;
@@ -95,3 +96,32 @@ button{
 
 
 }
+
+body.black{
+  background-color:#262626;
+}
+
+body.black .all-content div:first-child h1{
+  color:white;
+  opacity:0.9;
+}
+
+body.black .timer{
+  background-color: white;
+}
+body.black .timer h1{
+  color:#262626;
+}
+
+.interruptor{
+  background-color:#262626;
+  opacity: 0.5;
+  color:white;
+  font-weight: 700;
+  border:0px;
+  margin:0px;
+}
+
+
+
+
